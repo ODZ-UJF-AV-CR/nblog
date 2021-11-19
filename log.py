@@ -15,7 +15,7 @@ def handle_data(data, fn):
 
 def read_from_port(ser, fn):
 	while True:
-		reading = ser.readline().decode().rstrip()
+		reading = ser.readline().decode('utf-8', errors='replace').rstrip()
 		if (len(reading) > 0):
 			handle_data(str(time.time()) + ',' + reading + '\n', fn)
 
